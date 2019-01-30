@@ -1,0 +1,29 @@
+{
+  "name": "humane",
+  "version": "1.0.0",
+  "description": "checks tampa bay humane society for in-stock dogs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "iftttmaker": "^1.3.0",
+    "puppeteer": "^1.11.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mykeln/humane.git"
+  },
+  "keywords": [
+    "humane",
+    "society"
+  ],
+  "author": "Mykel Nahorniak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mykeln/humane/issues"
+  },
+  "homepage": "https://github.com/mykeln/humane#readme"
+}
