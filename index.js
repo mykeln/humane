@@ -34,52 +34,29 @@ const IFTTTMaker = require('iftttmaker')(apiKey);
   if(matches.length > 0) {
    console.log(matches.length + ' dogs found'); 
 
+   // trimming line breaks and sanitizing for send
    var cleanText = matches.toString().trim();
    console.log('mastiff is here!\n\n' + cleanText);
 
+   // assigning results to ifttt-friendly value
+   var request = {
+     event: 'mastiff',
+     values: {
+       value1: cleanText
+     }
+   };
 
-var request = {
-  event: 'mastiff',
-  values: {
-    value1: cleanText
-  }
-};
-
-IFTTTMaker.send(request, function (error) {
-  if (error) {
-    console.log('The request could not be sent:', error);
-  } else {
-    console.log('Request was sent');
-  }
-});
-
-
-
-
-
-
-
-  } else {
+   // sending request to ifttt
+    IFTTTMaker.send(request, function (error) {
+      if (error) {
+        console.log('The request could not be sent:', error);
+      } else {
+        console.log('Request was sent');
+      }
+    });
+  } else { // no matches found
     console.log('mastiff is not here');
   }
 
-
   browser.close();
-
-
-
- // if it's still getting to the designer, it's not in production
-  //if (textContent == "Delivery in ~2-4 months"){
-/*
-  if (count > 0){
-    IFTTTMaker.send('mastiff').then(function(){
-      console.log('there is a mastiff in stock!');
-    }).catch(function (error) {
-      console.log('The request could not be sent:', error);
-    });
-  } else {
-    console.log('no mastiff today');
-  }
-*/
-
 })();
